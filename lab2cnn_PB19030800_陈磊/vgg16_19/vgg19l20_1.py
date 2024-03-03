@@ -1,0 +1,12 @@
+ps=plt.figure()
+ps1=ps.add_subplot(1,2,1)
+ps2=ps.add_subplot(1,2,2)
+ps1.plot(np.arange(1,epoch_num+1,1),train_loss_list,'g',label='train_loss')
+ps1.set_xlabel('epoch');ps1.set_ylabel('loss');ps1.set_title('loss-epoch');ps1.legend()
+ps2.plot(np.arange(1,epoch_num+1,1),train_accu_list,'b',label='train_acc')
+ps2.plot(np.arange(10,epoch_num+1,10),valid_accu_list,'r',label='valid_acc')
+ps2.set_xlabel('epoch');ps2.set_ylabel('accu');ps1.set_title('accuracy-epoch');ps2.legend()
+plt.show()
+plt.savefig('VGG19yy.png')
+
+torch.save(net.state_dict(),'vgg19yy.params')
